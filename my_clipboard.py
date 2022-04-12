@@ -22,7 +22,6 @@ print(len(sys.argv))
 
 print("") 
 if len(sys.argv) > 1:
-    
     command = sys.argv[1]
     print("The command has got..." + command +"\n")
     if command == "-save":
@@ -34,7 +33,7 @@ if len(sys.argv) > 1:
     else:
         print('Unkown command')
 else:
-    print("Use this command: -save, -load, -list...")
+    print("Use this command: -save, -load, -list. Once a time.")
 
 
 
