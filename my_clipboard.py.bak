@@ -49,8 +49,8 @@ def save_json(filepath, data):
         print(open(filepath, "w"))
         print("")
                 
-        json.dump(data, open(filepath, "w"))
-        json.dump(data, f)
+        json.dump(data, open(filepath, "w"), sort_keys=True, indent=4)
+        # json.dump(data, f)
         print("* json.dump:", end=" ")
         print(json.dump)
         
@@ -58,7 +58,7 @@ def save_json(filepath, data):
         print("")
 
 
-save_json("data.json", {'key2':'hhh'})
+# save_json("data.json", {'key2':'hhh'})
 
 
 def load_json(filepath):
@@ -123,16 +123,17 @@ print(data.dictions)
 
 
 print("") 
-print("") 
+print("------------------------------------ 5 -----------------") 
 
 if len(sys.argv) > 1:    
     command = sys.argv[1]
     print("The command has got： " + command +"\n")
     data = load_json("data.json")
-    
     if command == "-save":
-        key = input("Enter a key: ")
-        data[key] = clipboard.paste()
+        # key = input("Enter a key: ")
+        key2 = command = sys.argv[2]
+        data[key2] = sys.argv[3]
+        print(sys.argv[3])
         save_json("data.json", data)
         
         print("I have already saved your text.")
@@ -141,18 +142,17 @@ if len(sys.argv) > 1:
         key = input("Enter a key: ")
         if key in data:
             clipboard.copy(data[key])
-            print("I have already copied your text.")
+            print("I have already copied your Key: " + key + "\nValue: " + data[key])
         else:
-            print("Key does not exist.")
-        
+            print("Key does not exist.")     
         
     elif command == '-list':
         print(data)
         print("I have already listed your text.")
     elif command == "-help":
         print("")
-        print("my_clipboard.py -save 1234")
-        print("I will save your text: 1234")
+        print("my_clipboard.py -save 1234 4321")
+        print("I will save your text: 4321 in the key: 1234")
         print("") 
     else:
         print('Aw, It looks like a unkown command.')
