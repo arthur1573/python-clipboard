@@ -1,6 +1,6 @@
 # python-clipboard
 
-## How to use this
+## How to use
 - install Python 3.10
 - download this project
 - run cmd in window10+, change directory to the project
